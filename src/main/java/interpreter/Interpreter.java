@@ -8,6 +8,18 @@ import interpreter.exception.MetadataException;
 
 public class Interpreter {
 
+    private static Interpreter instance = null;
+
+    private Interpreter() {
+    }
+
+    public static Interpreter getInstance() {
+        if (instance == null) {
+            instance = new Interpreter();
+        }
+        return instance;
+    }
+
     private String command;
     private int index = 0;
 
@@ -60,6 +72,8 @@ public class Interpreter {
 
                 drop();
 
+            } else {
+                throw new SyntaxErrorException("Unknown command type.");
             }
 
         } catch (CommandParseException e) {
