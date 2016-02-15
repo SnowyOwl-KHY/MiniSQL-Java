@@ -1,0 +1,6 @@
+Supported Commands:
+
+
+Commands that tend to support:
+create table table_name(attr1 type, attr2 type);
+drop table table_name;
